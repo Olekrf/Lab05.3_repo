@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -11,13 +12,23 @@ int main() {
     cout << "gp ="; cin >> gp;
     cout << "gk ="; cin >> gk;
     cout << "n ="; cin >> n;
+    cout << fixed;
+    cout << "----------------------------" << endl;
+    cout << "|" << setw(5)  << "g"     << "      |"
+                << setw(10) << "z" << "    |"
+                << endl;
+    cout << "----------------------------" << endl;
+
     double dg = (gk - gp) / n;
     double g = gp;
     while (g <= gk) {
         z = h(g*g +1)+h(g+h(1))+1;
-        cout << g << " " << z << endl;
+        cout << "|" << setw(7)  << setprecision(2) << g << "    |"
+                    << setw(10) << setprecision(5) << z << "    |"
+                    << endl;
         g += dg;
     }
+    cout << "----------------------------" << endl;
     return 0;
 }
 
